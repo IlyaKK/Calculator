@@ -6,4 +6,183 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/history_column"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/output_line_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/output_line_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="@string/zero"
+        android:textAlignment="textEnd"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/table_operations_gl" />
+
+    <GridLayout
+        android:id="@+id/table_operations_gl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:insetTop="0dp"
+            android:insetBottom="0dp" />
+
+    </GridLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

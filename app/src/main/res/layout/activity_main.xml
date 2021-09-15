@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/history_column"
+        android:id="@+id/history_column_tv"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/output_line_tv"
@@ -26,6 +26,7 @@
         android:id="@+id/output_line_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:text="@string/zero"
         android:textAlignment="textEnd"
@@ -44,144 +45,204 @@
         app:layout_constraintVertical_bias="1">
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/memory_save_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/memory_save"
+            android:textSize="20sp" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/memory_plus_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/memory_plus"
+            android:textSize="20sp" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/memory_minus_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/memory_minus"
+            android:textSize="20sp" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/memory_remove_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/memory_remove"
+            android:textSize="20sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/seven_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/seven_btn"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/eight_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/eight_btn"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/nine_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/nine_btn"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/multiply_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/multiply"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/four_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/four_btn"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/five_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/five"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/six_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/six"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/divide_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/divide"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/one_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/one"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/two_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/two"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/three_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/three"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/plus_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/plus"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/zero_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/zero"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/point_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/poit"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/equals_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/equals"
+            android:textSize="30sp" />
 
         <Button
-            android:layout_width="50dp"
+            android:id="@+id/minus_btn"
+            android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:insetTop="0dp"
-            android:insetBottom="0dp" />
+            android:insetBottom="0dp"
+            android:text="@string/minus"
+            android:textSize="30sp" />
 
     </GridLayout>
 

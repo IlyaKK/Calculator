@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Calculator</string>
+    <string name="zero">0</string>
+    <string name="memory_save">Ms</string>
+    <string name="memory_plus">M+</string>
+    <string name="memory_minus">M-</string>
+    <string name="memory_remove">Mr</string>
+    <string name="one">1</string>
+    <string name="poit">.</string>
+    <string name="equals">=</string>
+    <string name="minus">-</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="plus">+</string>
+    <string name="four_btn">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="divide">/</string>
+    <string name="seven_btn">7</string>
+    <string name="eight_btn">8</string>
+    <string name="nine_btn">9</string>
+    <string name="multiply">*</string>
 </resources>

@@ -45,32 +45,34 @@
         android:textAlignment="textEnd"
         android:textColor="@color/text_color_output_line"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/table_operations_gl" />
+        app:layout_constraintBottom_toTopOf="@id/line_memory_buttons_linear_layout" />
 
-    <GridLayout
-        android:id="@+id/table_operations_gl"
+    <LinearLayout
+        android:id="@+id/line_memory_buttons_linear_layout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:columnCount="4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@id/table_operations_gl"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/memory_save_btn"
-            android:layout_columnWeight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/memory_save"
-            android:textSize="20sp" />
+            android:textSize="20sp"/>
 
         <Button
             android:id="@+id/memory_plus_btn"
-            android:layout_columnWeight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
@@ -79,7 +81,9 @@
 
         <Button
             android:id="@+id/memory_minus_btn"
-            android:layout_columnWeight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
@@ -88,12 +92,41 @@
 
         <Button
             android:id="@+id/memory_remove_btn"
-            android:layout_columnWeight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/memory_remove"
             android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/remove_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/remove"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/table_operations_gl"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:columnCount="4"
+        android:padding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
+
 
         <Button
             android:id="@+id/seven_btn"

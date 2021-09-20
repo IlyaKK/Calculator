@@ -20,4 +20,5 @@
     <string name="eight_btn">8</string>
     <string name="nine_btn">9</string>
     <string name="multiply">*</string>
+    <string name="remove">C</string>
 </resources>

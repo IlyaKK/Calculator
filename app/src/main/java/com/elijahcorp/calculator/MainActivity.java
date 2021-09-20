@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     private Button memorySaveBtn, memoryPlusBtn, memoryMinusBtn, memoryRemoveBtn, zeroBtn, pointBtn,
             equalsBtn, minusBtn, oneBtn, twoBtn, threeBtn, plusBtn, fourBtn, fiveBtn, sixBtn, divideBtn, sevenBtn,
-            eightBtn, nineBtn, multiplyBtn;
+            eightBtn, nineBtn, multiplyBtn, removeBtn;
     private TextView outputLineTv, historyColumnTv;
 
     @Override
@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initViews();
         inputSymbols();
+        removeSymbols();
     }
 
     private void initViews() {
@@ -44,27 +45,28 @@ public class MainActivity extends AppCompatActivity {
         multiplyBtn = findViewById(R.id.multiply_btn);
         outputLineTv = findViewById(R.id.output_line_tv);
         historyColumnTv = findViewById(R.id.history_column_tv);
+        removeBtn = findViewById(R.id.remove_btn);
     }
 
     private void inputSymbols() {
-        zeroBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "0")));
-        oneBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "1")));
-        twoBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "2")));
-        threeBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "3")));
-        fourBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "4")));
-        fiveBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "5")));
-        sixBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "6")));
-        sevenBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "7")));
-        eightBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "8")));
-        nineBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "9")));
-        pointBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), ".")));
-        multiplyBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "*")));
-        divideBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "/")));
-        plusBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "+")));
-        minusBtn.setOnClickListener(l -> outputLineTv.setText(checkSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "-")));
+        zeroBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "0")));
+        oneBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "1")));
+        twoBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "2")));
+        threeBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "3")));
+        fourBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "4")));
+        fiveBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "5")));
+        sixBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "6")));
+        sevenBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "7")));
+        eightBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "8")));
+        nineBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "9")));
+        pointBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), ".")));
+        multiplyBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "*")));
+        divideBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "/")));
+        plusBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "+")));
+        minusBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), "-")));
     }
 
-    private String checkSymbol(String pastSymbol, String newSymbol) {
+    private String checkInsertSymbol(String pastSymbol, String newSymbol) {
         boolean pastSymbolIsOperation = pastSymbol.equals("+") || pastSymbol.equals("-") || pastSymbol.equals("*") || pastSymbol.equals("/");
         boolean newSymbolIsOperation = newSymbol.equals("+") || newSymbol.equals("-") || newSymbol.equals("*") || newSymbol.equals("/");
         if (pastSymbolIsOperation && newSymbolIsOperation) {
@@ -115,5 +117,9 @@ public class MainActivity extends AppCompatActivity {
             return outputLineTv.getText() + newSymbol;
         }
         return String.valueOf(outputLineTv.getText());
+    }
+
+    private void removeSymbols() {
+        removeBtn.setOnClickListener(l -> outputLineTv.setText("0"));
     }
 }

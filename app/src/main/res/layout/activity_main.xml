@@ -17,15 +17,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background_maths" />
 
-    <TextView
-        android:id="@+id/history_column_tv"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/color_background_tint"
         app:layout_constraintBottom_toTopOf="@id/output_line_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/history_column_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_background_tint"
+            android:textAlignment="textEnd"
+            android:textColor="@color/text_color_output_line"
+            android:textSize="15sp" />
+    </ScrollView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -66,7 +74,7 @@
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/memory_save"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/memory_plus_btn"

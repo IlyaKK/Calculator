@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         inputSymbols();
         removeSymbols();
+        solveExpression();
     }
 
     private void initViews() {
@@ -121,5 +122,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void removeSymbols() {
         removeBtn.setOnClickListener(l -> outputLineTv.setText("0"));
+    }
+
+    private void solveExpression() {
+        equalsBtn.setOnClickListener(l -> {
+            Calculation calculation = new Calculation(outputLineTv.getText().toString());
+            historyColumnTv.setText(historyColumnTv.getText() + "\n" + calculation.calculate());
+        });
     }
 }

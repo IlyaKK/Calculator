@@ -12,7 +12,9 @@ public class Calculation implements Parcelable {
     public Calculation(String stringExpression) {
         this.stringExpression = stringExpression;
     }
-    public Calculation(){}
+
+    public Calculation() {
+    }
 
     protected Calculation(Parcel in) {
         stringExpression = in.readString();

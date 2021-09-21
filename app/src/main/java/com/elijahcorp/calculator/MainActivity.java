@@ -19,16 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
         calculation.setStringExpression(outputLineTv.getText().toString());
         calculation.setColumnHistoryCalculations(historyColumnTv.getText().toString());
         outState.putParcelable(KEY_CALCULATIONS, calculation);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        calculation = savedInstanceState.getParcelable(KEY_CALCULATIONS);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -37,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initViews();
         if (savedInstanceState != null) {
+            calculation = savedInstanceState.getParcelable(KEY_CALCULATIONS);
             historyColumnTv.setText(calculation.getStringExpression());
             outputLineTv.setText(calculation.getColumnHistoryCalculations());
         }

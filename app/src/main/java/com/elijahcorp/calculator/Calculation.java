@@ -1,5 +1,7 @@
 package com.elijahcorp.calculator;
 
+import android.util.Log;
+
 import java.util.Stack;
 
 public class Calculation {
@@ -57,7 +59,7 @@ public class Calculation {
     }
 
     public double counting(String input) {
-        double result = 0;
+        double result;
         Stack<Double> solveStack = new Stack<>();
         for (int i = 0; i < input.length(); i++) {
             if (Character.isDigit(input.charAt(i)) || input.charAt(i) == '.') {
@@ -73,29 +75,30 @@ public class Calculation {
             } else if (isOperator(input.charAt(i))) {
                 double a = solveStack.pop();
                 double b = solveStack.pop();
-
-                switch (input.charAt(i)) {
-                    case '+':
-                        result = b + a;
-                        break;
-                    case '-':
-                        result = b - a;
-                        break;
-                    case '*':
-                        result = b * a;
-                        break;
-                    case '/':
-                        result = b / a;
-                        break;
-                }
+                result = operateCalculate(input.charAt(i), a, b);
                 solveStack.push(result);
             }
         }
         return solveStack.peek();
     }
 
+    private double operateCalculate(char operand, double a, double b) {
+        switch (operand) {
+            case '+':
+                return b + a;
+            case '-':
+                return b - a;
+            case '*':
+                return b * a;
+            case '/':
+                return b / a;
+            default:
+                return 0;
+        }
+    }
+
     private boolean isDelimiter(char c) {
-        return " =".contains(String.valueOf(c));
+        return " ".contains(String.valueOf(c));
     }
 
     private boolean isOperator(char c) {

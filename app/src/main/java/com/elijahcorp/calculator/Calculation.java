@@ -1,13 +1,34 @@
 package com.elijahcorp.calculator;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Stack;
 
-public class Calculation {
+public class Calculation implements Parcelable {
     private String stringExpression;
+    private String columnHistoryCalculations;
 
     public Calculation(String stringExpression) {
         this.stringExpression = stringExpression;
     }
+
+    protected Calculation(Parcel in) {
+        stringExpression = in.readString();
+        columnHistoryCalculations = in.readString();
+    }
+
+    public static final Creator<Calculation> CREATOR = new Creator<Calculation>() {
+        @Override
+        public Calculation createFromParcel(Parcel in) {
+            return new Calculation(in);
+        }
+
+        @Override
+        public Calculation[] newArray(int size) {
+            return new Calculation[size];
+        }
+    };
 
     public String getStringExpression() {
         return stringExpression;
@@ -15,6 +36,14 @@ public class Calculation {
 
     public void setStringExpression(String stringExpression) {
         this.stringExpression = stringExpression;
+    }
+
+    public String getColumnHistoryCalculations() {
+        return columnHistoryCalculations;
+    }
+
+    public void setColumnHistoryCalculations(String columnHistoryCalculations) {
+        this.columnHistoryCalculations = columnHistoryCalculations;
     }
 
     public double calculate() {
@@ -115,5 +144,16 @@ public class Calculation {
             default:
                 return 3;
         }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(stringExpression);
+        parcel.writeString(columnHistoryCalculations);
     }
 }

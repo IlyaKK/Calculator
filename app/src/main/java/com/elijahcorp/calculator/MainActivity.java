@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         initViews();
         if (savedInstanceState != null) {
             calculation = savedInstanceState.getParcelable(KEY_CALCULATIONS);
-            historyColumnTv.setText(calculation.getStringExpression());
-            outputLineTv.setText(calculation.getColumnHistoryCalculations());
+            historyColumnTv.setText(calculation.getColumnHistoryCalculations());
+            outputLineTv.setText(calculation.getStringExpression());
         }
         inputSymbols();
         removeSymbols();
@@ -145,7 +145,11 @@ public class MainActivity extends AppCompatActivity {
     private void solveExpression() {
         equalsBtn.setOnClickListener(l -> {
             calculation = new Calculation(outputLineTv.getText().toString());
-            historyColumnTv.setText(historyColumnTv.getText().toString() + "\n" + outputLineTv.getText() + "\n" + "=" + calculation.calculate());
+            if(historyColumnTv.getText().toString().isEmpty()){
+                historyColumnTv.setText(outputLineTv.getText() + "\n" + "=" + calculation.calculate());
+            }else{
+                historyColumnTv.setText(historyColumnTv.getText().toString() + "\n" + outputLineTv.getText() + "\n" + "=" + calculation.calculate());
+            }
             outputLineTv.setText("0");
         });
     }

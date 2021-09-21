@@ -30,7 +30,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/color_background_tint"
-            android:textAlignment="textEnd"
+            android:gravity="top|end"
+            android:includeFontPadding="false"
+            android:padding="4dp"
             android:textColor="@color/text_color_output_line"
             android:textSize="15sp" />
     </ScrollView>

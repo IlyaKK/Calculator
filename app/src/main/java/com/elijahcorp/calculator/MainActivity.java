@@ -1,5 +1,6 @@
 package com.elijahcorp.calculator;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -124,10 +125,12 @@ public class MainActivity extends AppCompatActivity {
         removeBtn.setOnClickListener(l -> outputLineTv.setText("0"));
     }
 
+    @SuppressLint("SetTextI18n")
     private void solveExpression() {
         equalsBtn.setOnClickListener(l -> {
             Calculation calculation = new Calculation(outputLineTv.getText().toString());
-            historyColumnTv.setText(historyColumnTv.getText() + "\n" + calculation.calculate());
+            historyColumnTv.setText(historyColumnTv.getText().toString() + "\n" + outputLineTv.getText() + "\n" + "=" + calculation.calculate());
+            outputLineTv.setText("0");
         });
     }
 }

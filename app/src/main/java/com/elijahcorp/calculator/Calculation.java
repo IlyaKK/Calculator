@@ -22,7 +22,7 @@ public class Calculation {
         return counting(postfixStringExpression.toString());
     }
 
-    public StringBuilder getExpression(String stringExpression) {
+    private StringBuilder getExpression(String stringExpression) {
         StringBuilder postfixStringExpression = new StringBuilder();
         Stack<Character> operatorStack = new Stack<>();
         for (int i = 0; i < stringExpression.length(); i++) {
@@ -56,7 +56,7 @@ public class Calculation {
         return postfixStringExpression;
     }
 
-    public double counting(String input) {
+    private double counting(String input) {
         double result;
         Stack<Double> solveStack = new Stack<>();
         for (int i = 0; i < input.length(); i++) {

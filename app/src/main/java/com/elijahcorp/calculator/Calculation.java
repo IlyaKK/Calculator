@@ -1,7 +1,5 @@
 package com.elijahcorp.calculator;
 
-import android.util.Log;
-
 import java.util.Stack;
 
 public class Calculation {

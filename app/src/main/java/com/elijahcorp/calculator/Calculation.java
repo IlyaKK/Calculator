@@ -12,6 +12,7 @@ public class Calculation implements Parcelable {
     public Calculation(String stringExpression) {
         this.stringExpression = stringExpression;
     }
+    public Calculation(){}
 
     protected Calculation(Parcel in) {
         stringExpression = in.readString();
@@ -128,7 +129,7 @@ public class Calculation implements Parcelable {
         return " ".contains(String.valueOf(c));
     }
 
-    private boolean isOperator(char c) {
+    public boolean isOperator(char c) {
         return "+-/*".contains(String.valueOf(c));
     }
 

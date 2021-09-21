@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String checkInsertSymbol(String pastSymbol, String newSymbol) {
-        boolean pastSymbolIsOperation = pastSymbol.equals("+") || pastSymbol.equals("-") || pastSymbol.equals("*") || pastSymbol.equals("/");
-        boolean newSymbolIsOperation = newSymbol.equals("+") || newSymbol.equals("-") || newSymbol.equals("*") || newSymbol.equals("/");
+        boolean pastSymbolIsOperation = new Calculation().isOperator(pastSymbol.charAt(0));
+        boolean newSymbolIsOperation = new Calculation().isOperator(newSymbol.charAt(0));
         if (pastSymbolIsOperation && newSymbolIsOperation) {
             Toast.makeText(MainActivity.this, "Введите другой символ", Toast.LENGTH_SHORT).show();
         } else if (pastSymbolIsOperation && newSymbol.equals(".")) {
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 if (outputLineTv.getText().charAt(i) == '.') {
                     countPoint++;
                 }
-                if (outputLineTv.getText().charAt(i) == '+' || outputLineTv.getText().charAt(i) == '-' || outputLineTv.getText().charAt(i) == '*' || outputLineTv.getText().charAt(i) == '/') {
+                if (new Calculation().isOperator(outputLineTv.getText().charAt(i))) {
                     if (countPoint > 0) {
                         Toast.makeText(MainActivity.this, "Введите другой символ", Toast.LENGTH_SHORT).show();
                         return String.valueOf(outputLineTv.getText());
@@ -122,8 +122,7 @@ public class MainActivity extends AppCompatActivity {
             return outputLineTv.getText() + newSymbol;
         } else if (newSymbol.equals("0")) {
             for (int i = outputLineTv.getText().length() - 1; i >= 0; i--) {
-                if ((outputLineTv.getText().charAt(i) == '+' || outputLineTv.getText().charAt(i) == '-' || outputLineTv.getText().charAt(i) == '*' || outputLineTv.getText().charAt(i) == '/') &&
-                        (i + 1 < outputLineTv.getText().length()) && outputLineTv.getText().charAt(i + 1) == '0') {
+                if ((new Calculation().isOperator(outputLineTv.getText().charAt(i))) && (i + 1 < outputLineTv.getText().length()) && outputLineTv.getText().charAt(i + 1) == '0') {
                     Toast.makeText(MainActivity.this, "Введите другой символ", Toast.LENGTH_SHORT).show();
                     return String.valueOf(outputLineTv.getText());
                 } else if (outputLineTv.getText().charAt(i) == '.') {
@@ -145,9 +144,9 @@ public class MainActivity extends AppCompatActivity {
     private void solveExpression() {
         equalsBtn.setOnClickListener(l -> {
             calculation = new Calculation(outputLineTv.getText().toString());
-            if(historyColumnTv.getText().toString().isEmpty()){
+            if (historyColumnTv.getText().toString().isEmpty()) {
                 historyColumnTv.setText(outputLineTv.getText() + "\n" + "=" + calculation.calculate());
-            }else{
+            } else {
                 historyColumnTv.setText(historyColumnTv.getText().toString() + "\n" + outputLineTv.getText() + "\n" + "=" + calculation.calculate());
             }
             outputLineTv.setText("0");

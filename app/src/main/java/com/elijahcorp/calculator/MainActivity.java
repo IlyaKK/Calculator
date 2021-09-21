@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,12 +14,32 @@ public class MainActivity extends AppCompatActivity {
             equalsBtn, minusBtn, oneBtn, twoBtn, threeBtn, plusBtn, fourBtn, fiveBtn, sixBtn, divideBtn, sevenBtn,
             eightBtn, nineBtn, multiplyBtn, removeBtn;
     private TextView outputLineTv, historyColumnTv;
+    private Calculation calculation;
+    private final String KEY_CALCULATIONS = "key_calculations";
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        calculation.setStringExpression(outputLineTv.getText().toString());
+        calculation.setColumnHistoryCalculations(historyColumnTv.getText().toString());
+        outState.putParcelable(KEY_CALCULATIONS, calculation);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        calculation = savedInstanceState.getParcelable(KEY_CALCULATIONS);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+        if (savedInstanceState != null) {
+            historyColumnTv.setText(calculation.getStringExpression());
+            outputLineTv.setText(calculation.getColumnHistoryCalculations());
+        }
         inputSymbols();
         removeSymbols();
         solveExpression();
@@ -128,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void solveExpression() {
         equalsBtn.setOnClickListener(l -> {
-            Calculation calculation = new Calculation(outputLineTv.getText().toString());
+            calculation = new Calculation(outputLineTv.getText().toString());
             historyColumnTv.setText(historyColumnTv.getText().toString() + "\n" + outputLineTv.getText() + "\n" + "=" + calculation.calculate());
             outputLineTv.setText("0");
         });

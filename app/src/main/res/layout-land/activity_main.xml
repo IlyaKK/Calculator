@@ -62,7 +62,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintBottom_toTopOf="@id/table_operations_gl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -74,8 +75,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             android:text="@string/memory_save"
             android:textSize="20sp" />
 
@@ -86,9 +85,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-
             android:text="@string/memory_plus"
             android:textSize="20sp" />
 
@@ -99,9 +95,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-
             android:text="@string/memory_minus"
             android:textSize="20sp" />
 
@@ -112,9 +105,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-
             android:text="@string/memory_remove"
             android:textSize="20sp" />
 
@@ -123,11 +113,8 @@
             style="?android:attr/buttonBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-
             android:text="@string/remove"
             android:textSize="20sp" />
 

@@ -1,5 +1,7 @@
 package com.elijahcorp.calculator;
 
+import static com.elijahcorp.calculator.Symbols.*;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -62,7 +64,7 @@ public class Calculation implements Parcelable {
                 continue;
             }
 
-            if (Character.isDigit(stringExpression.charAt(i)) || stringExpression.charAt(i) == '.') {
+            if (Character.isDigit(stringExpression.charAt(i)) || stringExpression.charAt(i) == POINT.getSymbol().charAt(0)) {
                 while (!isDelimiter(stringExpression.charAt(i)) && !isOperator(stringExpression.charAt(i))) {
                     postfixStringExpression.append(stringExpression.charAt(i));
                     i++;
@@ -92,7 +94,7 @@ public class Calculation implements Parcelable {
         double result;
         Stack<Double> solveStack = new Stack<>();
         for (int i = 0; i < input.length(); i++) {
-            if (Character.isDigit(input.charAt(i)) || input.charAt(i) == '.') {
+            if (Character.isDigit(input.charAt(i)) || input.charAt(i) == POINT.getSymbol().charAt(0)) {
                 StringBuilder a = new StringBuilder();
 
                 while (!isDelimiter(input.charAt(i)) && !isOperator(input.charAt(i))) {
@@ -113,18 +115,11 @@ public class Calculation implements Parcelable {
     }
 
     private double operateCalculate(char operand, double a, double b) {
-        switch (operand) {
-            case '+':
-                return b + a;
-            case '-':
-                return b - a;
-            case '*':
-                return b * a;
-            case '/':
-                return b / a;
-            default:
-                return 0;
-        }
+        if (operand == PLUS.getSymbol().charAt(0)) return b + a;
+        else if (operand == MINUS.getSymbol().charAt(0)) return b - a;
+        else if (operand == MULTIPLE.getSymbol().charAt(0)) return b * a;
+        else if (operand == DIVIDE.getSymbol().charAt(0)) return b / a;
+        else return 0;
     }
 
     private boolean isDelimiter(char c) {
@@ -136,17 +131,11 @@ public class Calculation implements Parcelable {
     }
 
     private byte getPriority(char s) {
-        switch (s) {
-            case '+':
-                return 0;
-            case '-':
-                return 1;
-            case '*':
-            case '/':
-                return 2;
-            default:
-                return 3;
-        }
+        if (s == PLUS.getSymbol().charAt(0)) return 0;
+        else if (s == MINUS.getSymbol().charAt(0)) return 1;
+        else if (s == MULTIPLE.getSymbol().charAt(0) || s == DIVIDE.getSymbol().charAt(0)) return 2;
+        else return 3;
+
     }
 
     @Override

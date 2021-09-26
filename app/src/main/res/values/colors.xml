@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorAccent">#5F37A5</color>
-    <color name="text_color_output_line">#49B15D</color>
-    <color name="color_background_tint">#D0000000</color>
+    <color name="purple_blue">#5F37A5</color>
+    <color name="green">#49B15D</color>
+    <color name="black_tint">#BC000000</color>
 </resources>

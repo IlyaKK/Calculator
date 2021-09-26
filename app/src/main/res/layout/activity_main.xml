@@ -20,7 +20,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/color_background_tint"
+        android:background="@color/black_tint"
         app:layout_constraintBottom_toTopOf="@id/output_line_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/start_history_column_guideline"
@@ -33,7 +33,7 @@
             android:gravity="top|end"
             android:includeFontPadding="false"
             android:padding="4dp"
-            android:textColor="@color/text_color_output_line"
+            android:textColor="@color/green"
             android:textSize="15sp" />
     </androidx.core.widget.NestedScrollView>
 
@@ -48,12 +48,12 @@
         android:id="@+id/output_line_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_background_tint"
+        android:background="@color/black_tint"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:text="@string/zero"
+        android:text="@string/button_0"
         android:textAlignment="textEnd"
-        android:textColor="@color/text_color_output_line"
+        android:textColor="@color/green"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@id/line_memory_buttons_linear_layout" />
 
@@ -76,7 +76,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/memory_save"
+            android:text="@string/button_memory_save"
             android:textSize="20sp" />
 
         <Button
@@ -88,7 +88,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/memory_plus"
+            android:text="@string/button_memory_plus"
             android:textSize="20sp" />
 
         <Button
@@ -100,7 +100,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/memory_minus"
+            android:text="@string/button_memory_minus"
             android:textSize="20sp" />
 
         <Button
@@ -112,7 +112,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/memory_remove"
+            android:text="@string/button_memory_remove"
             android:textSize="20sp" />
 
         <Button
@@ -124,7 +124,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/remove"
+            android:text="@string/button_remove"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -149,7 +149,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/seven_btn"
+            android:text="@string/button_7"
             android:textSize="30sp" />
 
         <Button
@@ -159,7 +159,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/eight_btn"
+            android:text="@string/button_8"
             android:textSize="30sp" />
 
         <Button
@@ -169,7 +169,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/nine_btn"
+            android:text="@string/button_9"
             android:textSize="30sp" />
 
         <Button
@@ -179,7 +179,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/multiply"
+            android:text="@string/button_multiply"
             android:textSize="30sp" />
 
         <Button
@@ -189,7 +189,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/four_btn"
+            android:text="@string/button_4"
             android:textSize="30sp" />
 
         <Button
@@ -199,7 +199,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/five"
+            android:text="@string/button_5"
             android:textSize="30sp" />
 
         <Button
@@ -209,7 +209,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/six"
+            android:text="@string/button_6"
             android:textSize="30sp" />
 
         <Button
@@ -219,7 +219,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/divide"
+            android:text="@string/button_divide"
             android:textSize="30sp" />
 
         <Button
@@ -229,7 +229,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/one"
+            android:text="@string/button_1"
             android:textSize="30sp" />
 
         <Button
@@ -239,7 +239,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/two"
+            android:text="@string/button_2"
             android:textSize="30sp" />
 
         <Button
@@ -249,7 +249,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/three"
+            android:text="@string/button_3"
             android:textSize="30sp" />
 
         <Button
@@ -259,7 +259,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/plus"
+            android:text="@string/button_plus"
             android:textSize="30sp" />
 
         <Button
@@ -269,7 +269,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/zero"
+            android:text="@string/button_0"
             android:textSize="30sp" />
 
         <Button
@@ -279,7 +279,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/point"
+            android:text="@string/button_point"
             android:textSize="30sp" />
 
         <Button
@@ -289,7 +289,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/equals"
+            android:text="@string/button_equals"
             android:textSize="30sp" />
 
         <Button
@@ -299,7 +299,7 @@
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/minus"
+            android:text="@string/button_minus"
             android:textSize="30sp" />
 
     </GridLayout>

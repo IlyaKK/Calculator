@@ -4,7 +4,7 @@
     <string name="button_memory_save">Ms</string>
     <string name="button_memory_plus">M+</string>
     <string name="button_memory_minus">M-</string>
-    <string name="button_memory_remove">Mr</string>
+    <string name="button_memory_read">Mr</string>
     <string name="button_1">1</string>
     <string name="button_point">.</string>
     <string name="button_equals">=</string>

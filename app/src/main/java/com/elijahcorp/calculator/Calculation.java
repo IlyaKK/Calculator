@@ -11,9 +11,7 @@ public class Calculation implements Parcelable {
     private String stringExpression;
     private String columnHistoryCalculations;
 
-    public Calculation(String stringExpression) {
-        this.stringExpression = stringExpression;
-    }
+    private String memoryCell = String.valueOf(ZERO);
 
     public Calculation() {
     }
@@ -21,6 +19,7 @@ public class Calculation implements Parcelable {
     protected Calculation(Parcel in) {
         stringExpression = in.readString();
         columnHistoryCalculations = in.readString();
+        memoryCell = in.readString();
     }
 
     public static final Creator<Calculation> CREATOR = new Creator<Calculation>() {
@@ -51,7 +50,7 @@ public class Calculation implements Parcelable {
         this.columnHistoryCalculations = columnHistoryCalculations;
     }
 
-    public double calculate() {
+    public double calculate(String stringExpression) {
         StringBuilder postfixStringExpression = getExpression(stringExpression);
         return counting(postfixStringExpression.toString());
     }
@@ -138,6 +137,14 @@ public class Calculation implements Parcelable {
 
     }
 
+    public String getMemoryCell() {
+        return memoryCell;
+    }
+
+    public void setMemoryCell(String memoryCell) {
+        this.memoryCell = memoryCell;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -147,5 +154,6 @@ public class Calculation implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(stringExpression);
         parcel.writeString(columnHistoryCalculations);
+        parcel.writeString(memoryCell);
     }
 }

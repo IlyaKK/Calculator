@@ -99,13 +99,13 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/memory_remove_button"
+            android:id="@+id/memory_read_button"
             style="?android:attr/buttonBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:text="@string/button_memory_remove"
+            android:text="@string/button_memory_read"
             android:textSize="20sp" />
 
         <Button

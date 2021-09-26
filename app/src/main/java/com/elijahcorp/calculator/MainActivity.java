@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private Button memorySaveBtn, memoryPlusBtn, memoryMinusBtn, memoryRemoveBtn,
+    private Button memorySaveBtn, memoryPlusBtn, memoryMinusBtn, memoryReadBtn,
             zeroBtn, pointBtn, equalsBtn, minusBtn, oneBtn,
             twoBtn, threeBtn, plusBtn, fourBtn, fiveBtn,
             sixBtn, divideBtn, sevenBtn, eightBtn,
@@ -36,17 +36,20 @@ public class MainActivity extends AppCompatActivity {
             calculation = savedInstanceState.getParcelable(KEY_CALCULATIONS);
             historyColumnTv.setText(calculation.getColumnHistoryCalculations());
             outputLineTv.setText(calculation.getStringExpression());
+        } else {
+            calculation = new Calculation();
         }
         initialiseOnClickListenerSymbolsBtn();
-        removeSymbols();
-        solveExpression();
+        initialiseOnClickListenerRemoveBtn();
+        initialiseOnClickListenerEqualsBtn();
+        initialiseOnClickListenerMemoryBtn();
     }
 
     private void initViews() {
         memorySaveBtn = findViewById(R.id.memory_save_button);
         memoryPlusBtn = findViewById(R.id.memory_plus_button);
         memoryMinusBtn = findViewById(R.id.memory_minus_button);
-        memoryRemoveBtn = findViewById(R.id.memory_remove_button);
+        memoryReadBtn = findViewById(R.id.memory_read_button);
         zeroBtn = findViewById(R.id.zero_button);
         pointBtn = findViewById(R.id.point_button);
         equalsBtn = findViewById(R.id.equals_button);
@@ -138,20 +141,55 @@ public class MainActivity extends AppCompatActivity {
         return String.valueOf(outputLineTv.getText());
     }
 
-    private void removeSymbols() {
+    private void initialiseOnClickListenerRemoveBtn() {
         removeBtn.setOnClickListener(l -> outputLineTv.setText(Symbols.ZERO.getSymbol()));
     }
 
     @SuppressLint("SetTextI18n")
-    private void solveExpression() {
+    private void initialiseOnClickListenerEqualsBtn() {
         equalsBtn.setOnClickListener(l -> {
-            calculation = new Calculation(outputLineTv.getText().toString());
-            if (historyColumnTv.getText().toString().isEmpty()) {
-                historyColumnTv.setText(outputLineTv.getText() + "\n" + Symbols.EQUALS.getSymbol() + calculation.calculate());
-            } else {
-                historyColumnTv.setText(historyColumnTv.getText().toString() + "\n" + outputLineTv.getText() + "\n" + Symbols.EQUALS.getSymbol() + calculation.calculate());
-            }
+            double solve = solveExpression();
+            outputLineTv.setText(Double.toString(solve));
+        });
+    }
+
+    private void initialiseOnClickListenerMemoryBtn() {
+        memorySaveBtn.setOnClickListener(l -> {
+            double solve = solveExpression();
+            displayHistory(solve);
             outputLineTv.setText(Symbols.ZERO.getSymbol());
         });
+
+        memoryReadBtn.setOnClickListener(l -> outputLineTv.setText(calculation.getMemoryCell()));
+
+        memoryPlusBtn.setOnClickListener(l -> {
+            outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.PLUS.getSymbol()));
+            outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), calculation.getMemoryCell()));
+            double solve = solveExpression();
+            displayHistory(solve);
+            outputLineTv.setText(Symbols.ZERO.getSymbol());
+        });
+
+        memoryMinusBtn.setOnClickListener(l -> {
+            outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.MINUS.getSymbol()));
+            outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), calculation.getMemoryCell()));
+            double solve = solveExpression();
+            displayHistory(solve);
+            outputLineTv.setText(Symbols.ZERO.getSymbol());
+        });
+    }
+
+    private double solveExpression() {
+        return calculation.calculate(outputLineTv.getText().toString());
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void displayHistory(double solve) {
+        calculation.setMemoryCell(Double.toString(solve));
+        if (historyColumnTv.getText().toString().isEmpty()) {
+            historyColumnTv.setText(outputLineTv.getText() + "\n" + Symbols.EQUALS.getSymbol() + solve);
+        } else {
+            historyColumnTv.setText(historyColumnTv.getText().toString() + "\n" + outputLineTv.getText() + "\n" + Symbols.EQUALS.getSymbol() + solve);
+        }
     }
 }

@@ -17,9 +17,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background_maths" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/black_tint"
         app:layout_constraintBottom_toTopOf="@id/output_line_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/start_history_column_guideline"
@@ -29,13 +30,12 @@
             android:id="@+id/history_column_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black_tint"
             android:gravity="top|end"
             android:includeFontPadding="false"
             android:padding="2dp"
             android:textColor="@color/green"
             android:textSize="15sp" />
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/start_history_column_guideline"

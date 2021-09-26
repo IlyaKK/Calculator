@@ -17,10 +17,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background_maths" />
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/color_background_tint"
         app:layout_constraintBottom_toTopOf="@id/output_line_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/start_history_column_guideline"
@@ -29,13 +28,14 @@
         <TextView
             android:id="@+id/history_column_text_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_background_tint"
             android:gravity="top|end"
             android:includeFontPadding="false"
-            android:padding="4dp"
+            android:padding="2dp"
             android:textColor="@color/text_color_output_line"
             android:textSize="15sp" />
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/start_history_column_guideline"
@@ -61,8 +61,9 @@
         android:id="@+id/line_memory_buttons_linear_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:orientation="horizontal"
-        android:padding="4dp"
         app:layout_constraintBottom_toTopOf="@id/table_operations_grid_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -74,8 +75,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             android:text="@string/memory_save"
             android:textSize="20sp" />
 
@@ -86,8 +85,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             android:text="@string/memory_plus"
             android:textSize="20sp" />
 
@@ -98,8 +95,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             android:text="@string/memory_minus"
             android:textSize="20sp" />
 
@@ -110,8 +105,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             android:text="@string/memory_remove"
             android:textSize="20sp" />
 
@@ -120,10 +113,8 @@
             style="?android:attr/buttonBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:background="@drawable/rounded_button"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
             android:text="@string/remove"
             android:textSize="20sp" />
 
@@ -132,175 +123,159 @@
     <GridLayout
         android:id="@+id/table_operations_grid_layout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:columnCount="4"
         android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="line_memory_buttons_linear_layout">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
 
 
         <Button
             android:id="@+id/seven_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/seven_btn"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/eight_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/eight_btn"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/nine_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/nine_btn"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/multiply_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/multiply"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/four_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/four_btn"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/five_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/five"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/six_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/six"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/divide_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/divide"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/one_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/one"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/two_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/two"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/three_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/three"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/plus_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/plus"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/zero_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/zero"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/point_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/point"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/equals_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/equals"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/minus_button"
-            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/minus"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
     </GridLayout>
 

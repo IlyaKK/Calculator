@@ -6,7 +6,7 @@
     <string name="memory_minus">M-</string>
     <string name="memory_remove">Mr</string>
     <string name="one">1</string>
-    <string name="poit">.</string>
+    <string name="point">.</string>
     <string name="equals">=</string>
     <string name="minus">-</string>
     <string name="two">2</string>
@@ -20,4 +20,5 @@
     <string name="eight_btn">8</string>
     <string name="nine_btn">9</string>
     <string name="multiply">*</string>
+    <string name="remove">C</string>
 </resources>

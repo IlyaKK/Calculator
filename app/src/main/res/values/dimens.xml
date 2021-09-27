@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="double_padding">16dp</dimen>
+    <dimen name="default_padding">8dp</dimen>
+    <dimen name="half_padding">4dp</dimen>
+
+    <dimen name="big_text_size">30sp</dimen>
+    <dimen name="middle_text_size">20sp</dimen>
+    <dimen name="small_text_size">15sp</dimen>
+
+    <dimen name="calc_button_inset">0dp</dimen>
+
+    <dimen name="calc_text_view_padding">@dimen/half_padding</dimen>
+
+    <dimen name="calc_history_column_text_size">@dimen/small_text_size</dimen>
+
+    <dimen name="calc_output_line_text_size">@dimen/big_text_size</dimen>
+    <dimen name="calc_output_line_padding">@dimen/default_padding</dimen>
+
+    <dimen name="calc_button_clear_memory_text_size">@dimen/middle_text_size</dimen>
+
+    <dimen name="calc_button_number_text_size">@dimen/big_text_size</dimen>
+</resources>

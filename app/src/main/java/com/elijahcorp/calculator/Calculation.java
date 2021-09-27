@@ -11,7 +11,7 @@ public class Calculation implements Parcelable {
     private String stringExpression;
     private String columnHistoryCalculations;
 
-    private String memoryCell = String.valueOf(ZERO);
+    private String memoryCell = ZERO.getSymbol();
 
     public Calculation() {
     }

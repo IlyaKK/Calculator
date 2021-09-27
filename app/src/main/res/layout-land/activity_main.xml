@@ -68,53 +68,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_save_button"
-            style="?android:attr/buttonBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
             android:text="@string/button_memory_save"
             android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/memory_plus_button"
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:text="@string/button_memory_plus"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/memory_minus_button"
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:text="@string/button_memory_minus"
-            android:textSize="20sp" />
-
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_read_button"
-            style="?android:attr/buttonBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
             android:text="@string/button_memory_read"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/memory_plus_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_memory_plus"
+            android:textSize="20sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/memory_minus_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_memory_minus"
+            android:textSize="20sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/memory_clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_clear_memory"
+            android:textSize="20sp" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/remove_button"
-            style="?android:attr/buttonBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:background="@drawable/rounded_button"
             android:text="@string/button_remove"
             android:textSize="20sp" />
 
@@ -133,145 +131,129 @@
         app:layout_constraintVertical_bias="1">
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/seven_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_7"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/eight_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_8"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/nine_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_9"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/multiply_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_multiply"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/four_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_4"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/five_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_5"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/six_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_6"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/divide_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_divide"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/one_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_1"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/two_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_2"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/three_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_3"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/plus_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_plus"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/zero_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_0"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/point_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_point"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/equals_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_equals"
             android:textSize="20sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/minus_button"
             android:layout_columnWeight="1"
-            android:background="@drawable/rounded_button"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="@string/button_minus"

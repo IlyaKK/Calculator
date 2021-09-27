@@ -11,10 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button memorySaveBtn, memoryPlusBtn, memoryMinusBtn, memoryReadBtn,
-            zeroBtn, pointBtn, equalsBtn, minusBtn, oneBtn,
-            twoBtn, threeBtn, plusBtn, fourBtn, fiveBtn,
-            sixBtn, divideBtn, sevenBtn, eightBtn,
-            nineBtn, multiplyBtn, removeBtn;
+            zeroBtn, pointBtn, equalsBtn, minusBtn,
+            oneBtn, twoBtn, threeBtn, plusBtn,
+            fourBtn, fiveBtn, sixBtn, divideBtn,
+            sevenBtn, eightBtn, nineBtn, multiplyBtn,
+            removeBtn, memoryClearBtn;
     private TextView outputLineTv, historyColumnTv;
     private Calculation calculation;
     private final String KEY_CALCULATIONS = "key_calculations";
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         memoryPlusBtn = findViewById(R.id.memory_plus_button);
         memoryMinusBtn = findViewById(R.id.memory_minus_button);
         memoryReadBtn = findViewById(R.id.memory_read_button);
+        memoryClearBtn = findViewById(R.id.memory_clear_button);
         zeroBtn = findViewById(R.id.zero_button);
         pointBtn = findViewById(R.id.point_button);
         equalsBtn = findViewById(R.id.equals_button);
@@ -176,6 +178,11 @@ public class MainActivity extends AppCompatActivity {
             double solve = solveExpression();
             displayHistory(solve);
             outputLineTv.setText(Symbols.ZERO.getSymbol());
+        });
+
+        memoryClearBtn.setOnClickListener(l -> {
+            historyColumnTv.setText("");
+            calculation.setMemoryCell("0");
         });
     }
 

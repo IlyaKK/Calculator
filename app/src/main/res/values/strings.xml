@@ -1,25 +1,48 @@
 <resources>
+    <string name="point">.</string>
+    <string name="equals">=</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="divide">/</string>
+    <string name="multiply">*</string>
+
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+
     <string name="app_name">Calculator</string>
-    <string name="button_0">0</string>
     <string name="button_memory_save">Ms</string>
     <string name="button_memory_plus">M+</string>
     <string name="button_memory_minus">M-</string>
     <string name="button_memory_read">Mr</string>
-    <string name="button_1">1</string>
-    <string name="button_point">.</string>
-    <string name="button_equals">=</string>
-    <string name="button_minus">-</string>
-    <string name="button_2">2</string>
-    <string name="button_3">3</string>
-    <string name="button_plus">+</string>
-    <string name="button_4">4</string>
-    <string name="button_5">5</string>
-    <string name="button_6">6</string>
-    <string name="button_divide">/</string>
-    <string name="button_7">7</string>
-    <string name="button_8">8</string>
-    <string name="button_9">9</string>
-    <string name="button_multiply">*</string>
-    <string name="button_remove">C</string>
     <string name="button_clear_memory">Mc</string>
+
+    <string name="button_point">@string/point</string>
+    <string name="button_equals">@string/equals</string>
+    <string name="button_minus">@string/minus</string>
+    <string name="button_plus">@string/plus</string>
+    <string name="button_divide">@string/divide</string>
+    <string name="button_multiply">@string/multiply</string>
+
+    <string name="button_0">@string/zero</string>
+    <string name="button_1">@string/one</string>
+    <string name="button_2">@string/two</string>
+    <string name="button_3">@string/three</string>
+    <string name="button_4">@string/four</string>
+    <string name="button_5">@string/five</string>
+    <string name="button_6">@string/six</string>
+    <string name="button_7">@string/seven</string>
+    <string name="button_8">@string/eight</string>
+    <string name="button_9">@string/nine</string>
+
+    <string name="button_remove">C</string>
+
+    <string name="warning_message">Введите другой символ</string>
 </resources>

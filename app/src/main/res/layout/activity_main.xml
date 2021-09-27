@@ -28,12 +28,7 @@
 
         <TextView
             android:id="@+id/history_column_text_view"
-            style="@style/CalculationTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:padding="4dp"
-            android:textSize="15sp" />
+            style="@style/CalculationTextView.HistoryColumn" />
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.Guideline
@@ -45,15 +40,10 @@
 
     <TextView
         android:id="@+id/output_line_text_view"
-        style="@style/CalculationTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black_tint"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        style="@style/CalculationTextView.OutputLine"
         android:text="@string/button_0"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/line_buttons_clear_linear_layout" />
+        app:layout_constraintBottom_toTopOf="@id/line_buttons_clear_linear_layout"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <LinearLayout
         android:id="@+id/line_buttons_clear_linear_layout"

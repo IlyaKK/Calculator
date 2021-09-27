@@ -10,12 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private Button memorySaveBtn, memoryPlusBtn, memoryMinusBtn, memoryReadBtn,
-            zeroBtn, pointBtn, equalsBtn, minusBtn,
-            oneBtn, twoBtn, threeBtn, plusBtn,
-            fourBtn, fiveBtn, sixBtn, divideBtn,
-            sevenBtn, eightBtn, nineBtn, multiplyBtn,
-            removeBtn, memoryClearBtn;
+    private Button
+            memorySaveBtn, memoryPlusBtn, memoryMinusBtn, memoryReadBtn,
+            memoryClearBtn, zeroBtn, pointBtn, equalsBtn,
+            minusBtn, oneBtn, twoBtn, threeBtn,
+            plusBtn, fourBtn, fiveBtn, sixBtn,
+            divideBtn, sevenBtn, eightBtn, nineBtn,
+            multiplyBtn, removeBtn;
     private TextView outputLineTv, historyColumnTv;
     private Calculation calculation;
     private final String KEY_CALCULATIONS = "key_calculations";

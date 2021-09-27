@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalculatorLineButtons">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="CalculationButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="backgroundTint">@color/black_green</item>
+    </style>
+
+    <style name="CalculationButton.CalculatorMemoryButton">
+        <item name="backgroundTint">@color/black_amaranth</item>
+    </style>
+
+    <style name="CalculationButton.NumberButton">
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:textSize">30sp</item>
+        <item name="backgroundTint">@color/black_purple</item>
+    </style>
+
+    <style name="CalculationButton.NumberButton.OperationButton">
+        <item name="backgroundTint">@color/black_orange</item>
+    </style>
+
+    <style name="CalculationButton.NumberButton.EqualsButton">
+        <item name="backgroundTint">@color/black_green</item>
+    </style>
+
+    <style name="CalculationTextView">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAlignment">textEnd</item>
+    </style>
+</resources>

@@ -43,7 +43,7 @@
         style="@style/CalculationTextView.OutputLine"
         android:text="@string/button_0"
         app:layout_constraintBottom_toTopOf="@id/line_buttons_clear_linear_layout"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/line_buttons_clear_linear_layout"

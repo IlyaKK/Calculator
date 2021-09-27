@@ -28,13 +28,7 @@
 
         <TextView
             android:id="@+id/history_column_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="top|end"
-            android:includeFontPadding="false"
-            android:padding="2dp"
-            android:textColor="@color/green"
-            android:textSize="15sp" />
+            style="@style/CalculationTextView.HistoryColumn" />
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.Guideline
@@ -46,75 +40,47 @@
 
     <TextView
         android:id="@+id/output_line_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black_tint"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        style="@style/CalculationTextView.OutputLine"
         android:text="@string/button_0"
-        android:textAlignment="textEnd"
-        android:textColor="@color/green"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/line_memory_buttons_linear_layout" />
+        app:layout_constraintBottom_toTopOf="@id/line_memory_buttons_linear_layout"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/line_memory_buttons_linear_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:orientation="horizontal"
+        style="@style/CalculatorLineButtons"
         app:layout_constraintBottom_toTopOf="@id/table_operations_grid_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_save_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button_memory_save"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.CalculatorMemoryButton"
+            android:text="@string/button_memory_save" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_read_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button_memory_read"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.CalculatorMemoryButton"
+            android:text="@string/button_memory_read" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_plus_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button_memory_plus"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.CalculatorMemoryButton"
+            android:text="@string/button_memory_plus" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_minus_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button_memory_minus"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.CalculatorMemoryButton"
+            android:text="@string/button_memory_minus" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_clear_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/button_clear_memory"
-            android:textSize="20sp" />
+            style="@style/CalculationButton"
+            android:text="@string/button_clear_memory" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/remove_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/button_remove"
-            android:textSize="20sp" />
+            style="@style/CalculationButton"
+            android:text="@string/button_remove" />
 
     </LinearLayout>
 
@@ -123,7 +89,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:columnCount="4"
-        android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,131 +98,83 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/seven_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_7"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_7" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/eight_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_8"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_8" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/nine_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_9"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_9" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/multiply_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_multiply"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton.OperationButton"
+            android:text="@string/button_multiply" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/four_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_4"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_4" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/five_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_5"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_5" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/six_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_6"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_6" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/divide_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_divide"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton.OperationButton"
+            android:text="@string/button_divide" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/one_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_1"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_1" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/two_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_2"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_2" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/three_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_3"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_3" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/plus_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_plus"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton.OperationButton"
+            android:text="@string/button_plus" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/zero_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_0"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_0" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/point_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_point"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton"
+            android:text="@string/button_point" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/equals_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_equals"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton.EqualsButton"
+            android:text="@string/button_equals" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/minus_button"
-            android:layout_columnWeight="1"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/button_minus"
-            android:textSize="20sp" />
+            style="@style/CalculationButton.NumberButton.OperationButton"
+            android:text="@string/button_minus" />
 
     </GridLayout>
 

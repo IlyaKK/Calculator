@@ -18,8 +18,16 @@
         <item name="backgroundTint">@color/black_green</item>
     </style>
 
+    <style name="CalculationButton.Light">
+        <item name="backgroundTint">@color/light_green</item>
+    </style>
+
     <style name="CalculationButton.CalculatorMemoryButton">
         <item name="backgroundTint">@color/black_amaranth</item>
+    </style>
+
+    <style name="CalculationButton.CalculatorMemoryButton.Light">
+        <item name="backgroundTint">@color/light_amaranth</item>
     </style>
 
     <style name="CalculationButton.NumberButton">
@@ -29,12 +37,24 @@
         <item name="backgroundTint">@color/black_purple</item>
     </style>
 
+    <style name="CalculationButton.NumberButton.Light">
+        <item name="backgroundTint">@color/Light_purple</item>
+    </style>
+
     <style name="CalculationButton.NumberButton.OperationButton">
         <item name="backgroundTint">@color/black_orange</item>
     </style>
 
+    <style name="CalculationButton.NumberButton.OperationButton.Light">
+        <item name="backgroundTint">@color/light_orange</item>
+    </style>
+
     <style name="CalculationButton.NumberButton.EqualsButton">
         <item name="backgroundTint">@color/black_green</item>
+    </style>
+
+    <style name="CalculationButton.NumberButton.EqualsButton.Light">
+        <item name="backgroundTint">@color/light_green</item>
     </style>
 
     <style name="CalculationTextView">
@@ -49,6 +69,10 @@
     <style name="CalculationTextView.HistoryColumn">
         <item name="android:layout_gravity">end</item>
         <item name="android:textSize">@dimen/calc_history_column_text_size</item>
+    </style>
+
+    <style name="CalculationTextView.HistoryColumn.Light">
+        <item name="android:textColor">@color/black_green</item>
     </style>
 
     <style name="CalculationTextView.OutputLine">

@@ -15,18 +15,14 @@
         <item name="android:insetBottom">@dimen/calc_button_inset</item>
         <item name="android:textSize">@dimen/calc_button_clear_memory_text_size</item>
         <item name="cornerRadius">0dp</item>
-        <item name="backgroundTint">@color/black_green</item>
-    </style>
-
-    <style name="CalculationButton.Light">
         <item name="backgroundTint">@color/light_green</item>
     </style>
 
-    <style name="CalculationButton.CalculatorMemoryButton">
-        <item name="backgroundTint">@color/black_amaranth</item>
+    <style name="CalculationButton.ModeDayNight">
+        <item name="backgroundTint">@color/light_green</item>
     </style>
 
-    <style name="CalculationButton.CalculatorMemoryButton.Light">
+    <style name="CalculationButton.CalculatorMemoryButtonModeDayNight">
         <item name="backgroundTint">@color/light_amaranth</item>
     </style>
 
@@ -37,23 +33,15 @@
         <item name="backgroundTint">@color/black_purple</item>
     </style>
 
-    <style name="CalculationButton.NumberButton.Light">
-        <item name="backgroundTint">@color/Light_purple</item>
+    <style name="CalculationButton.NumberButton.ModeDayNight">
+        <item name="backgroundTint">@color/light_purple</item>
     </style>
 
-    <style name="CalculationButton.NumberButton.OperationButton">
-        <item name="backgroundTint">@color/black_orange</item>
-    </style>
-
-    <style name="CalculationButton.NumberButton.OperationButton.Light">
+    <style name="CalculationButton.NumberButton.OperationButtonModeDayNight">
         <item name="backgroundTint">@color/light_orange</item>
     </style>
 
-    <style name="CalculationButton.NumberButton.EqualsButton">
-        <item name="backgroundTint">@color/black_green</item>
-    </style>
-
-    <style name="CalculationButton.NumberButton.EqualsButton.Light">
+    <style name="CalculationButton.NumberButton.EqualsButtonModeDayNight">
         <item name="backgroundTint">@color/light_green</item>
     </style>
 
@@ -66,20 +54,24 @@
         <item name="android:padding">@dimen/calc_text_view_padding</item>
     </style>
 
-    <style name="CalculationTextView.HistoryColumn">
+    <style name="CalculationTextView.ModeDayNight">
+        <item name="android:textColor">@color/black_green</item>
+    </style>
+
+    <style name="CalculationTextView.ModeDayNight.HistoryColumn">
         <item name="android:layout_gravity">end</item>
         <item name="android:textSize">@dimen/calc_history_column_text_size</item>
     </style>
 
-    <style name="CalculationTextView.HistoryColumn.Light">
-        <item name="android:textColor">@color/black_green</item>
-    </style>
-
-    <style name="CalculationTextView.OutputLine">
+    <style name="CalculationTextView.ModeDayNight.OutputLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">@dimen/calc_output_line_text_size</item>
         <item name="android:paddingStart">@dimen/calc_output_line_padding</item>
         <item name="android:paddingEnd">@dimen/calc_output_line_padding</item>
-        <item name="android:background">@color/black_tint</item>
+        <item name="android:background">@color/white_tint</item>
+    </style>
+
+    <style name="CalculationNestedScrollView">
+        <item name="android:background">@color/white_tint</item>
     </style>
 </resources>

@@ -7,11 +7,12 @@
     <color name="black_green">#02430F</color>
     <color name="light_green">#47FF6B</color>
     <color name="black_tint">#BC000000</color>
+    <color name="white_tint">#43FFFFFF</color>
     <color name="amaranth">#E91E63</color>
     <color name="black_amaranth">#57001D</color>
     <color name="light_amaranth">#FF3679</color>
     <color name="black_purple">#1B004C</color>
-    <color name="Light_purple">#8541FF</color>
+    <color name="light_purple">#8541FF</color>
     <color name="black_orange">#611700</color>
     <color name="light_orange">#FF6F42</color>
 </resources>

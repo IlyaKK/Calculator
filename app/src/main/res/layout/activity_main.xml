@@ -18,9 +18,9 @@
         app:srcCompat="@drawable/background_maths" />
 
     <androidx.core.widget.NestedScrollView
+        style="@style/CalculationNestedScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/black_tint"
         app:layout_constraintBottom_toTopOf="@id/output_line_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/start_history_column_guideline"
@@ -28,7 +28,7 @@
 
         <TextView
             android:id="@+id/history_column_text_view"
-            style="@style/CalculationTextView.HistoryColumn" />
+            style="@style/CalculationTextView.ModeDayNight.HistoryColumn" />
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.Guideline
@@ -40,7 +40,7 @@
 
     <TextView
         android:id="@+id/output_line_text_view"
-        style="@style/CalculationTextView.OutputLine"
+        style="@style/CalculationTextView.ModeDayNight.OutputLine"
         android:text="@string/button_0"
         app:layout_constraintBottom_toTopOf="@id/line_buttons_clear_linear_layout"
         app:layout_constraintStart_toStartOf="parent" />
@@ -73,22 +73,22 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_save_button"
-            style="@style/CalculationButton.CalculatorMemoryButton"
+            style="@style/CalculationButton.CalculatorMemoryButtonModeDayNight"
             android:text="@string/button_memory_save" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_read_button"
-            style="@style/CalculationButton.CalculatorMemoryButton"
+            style="@style/CalculationButton.CalculatorMemoryButtonModeDayNight"
             android:text="@string/button_memory_read" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_plus_button"
-            style="@style/CalculationButton.CalculatorMemoryButton"
+            style="@style/CalculationButton.CalculatorMemoryButtonModeDayNight"
             android:text="@string/button_memory_plus" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_minus_button"
-            style="@style/CalculationButton.CalculatorMemoryButton"
+            style="@style/CalculationButton.CalculatorMemoryButtonModeDayNight"
             android:text="@string/button_memory_minus" />
 
     </LinearLayout>
@@ -106,82 +106,82 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/seven_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_7" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/eight_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_8" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/nine_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_9" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/multiply_button"
-            style="@style/CalculationButton.NumberButton.OperationButton"
+            style="@style/CalculationButton.NumberButton.OperationButtonModeDayNight"
             android:text="@string/button_multiply" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/four_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_4" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/five_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_5" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/six_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_6" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/divide_button"
-            style="@style/CalculationButton.NumberButton.OperationButton"
+            style="@style/CalculationButton.NumberButton.OperationButtonModeDayNight"
             android:text="@string/button_divide" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/one_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_1" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/two_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_2" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/three_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_3" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/plus_button"
-            style="@style/CalculationButton.NumberButton.OperationButton"
+            style="@style/CalculationButton.NumberButton.OperationButtonModeDayNight"
             android:text="@string/button_plus" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/zero_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_0" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/point_button"
-            style="@style/CalculationButton.NumberButton"
+            style="@style/CalculationButton.NumberButton.ModeDayNight"
             android:text="@string/button_point" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/equals_button"
-            style="@style/CalculationButton.NumberButton.EqualsButton"
+            style="@style/CalculationButton.NumberButton.EqualsButtonModeDayNight"
             android:text="@string/button_equals" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/minus_button"
-            style="@style/CalculationButton.NumberButton.OperationButton"
+            style="@style/CalculationButton.NumberButton.OperationButtonModeDayNight"
             android:text="@string/button_minus" />
 
     </GridLayout>

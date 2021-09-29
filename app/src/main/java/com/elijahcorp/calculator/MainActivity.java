@@ -11,11 +11,16 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     private MaterialButton
-            memorySaveBtn, memoryPlusBtn, memoryMinusBtn, memoryReadBtn,
-            memoryClearBtn, zeroBtn, pointBtn, equalsBtn,
-            minusBtn, oneBtn, twoBtn, threeBtn,
-            plusBtn, fourBtn, fiveBtn, sixBtn,
-            divideBtn, sevenBtn, eightBtn, nineBtn,
+            memorySaveBtn, memoryPlusBtn,
+            memoryMinusBtn, memoryReadBtn,
+            memoryClearBtn, zeroBtn,
+            pointBtn, equalsBtn,
+            minusBtn, oneBtn,
+            twoBtn, threeBtn,
+            plusBtn, fourBtn,
+            fiveBtn, sixBtn,
+            divideBtn, sevenBtn,
+            eightBtn, nineBtn,
             multiplyBtn, removeBtn;
     private TextView outputLineTv, historyColumnTv;
     private Calculation calculation;

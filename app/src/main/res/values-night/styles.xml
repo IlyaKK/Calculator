@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalculationButton.ModeDayNight">
+        <item name="backgroundTint">@color/black_green</item>
+    </style>
+
+    <style name="CalculationButton.CalculatorMemoryButtonModeDayNight">
+        <item name="backgroundTint">@color/black_amaranth</item>
+    </style>
+
+    <style name="CalculationButton.NumberButton.ModeDayNight">
+        <item name="backgroundTint">@color/black_purple</item>
+    </style>
+
+    <style name="CalculationButton.NumberButton.OperationButtonModeDayNight">
+        <item name="backgroundTint">@color/black_orange</item>
+    </style>
+
+
+    <style name="CalculationButton.NumberButton.EqualsButtonModeDayNight">
+        <item name="backgroundTint">@color/black_green</item>
+    </style>
+
+    <style name="CalculationTextView.ModeDayNight">
+        <item name="android:textColor">@color/light_green</item>
+    </style>
+
+    <style name="CalculationNestedScrollView">
+        <item name="android:background">@color/black_tint</item>
+    </style>
+</resources>

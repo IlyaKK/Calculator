@@ -177,16 +177,16 @@ public class MainActivity extends AppCompatActivity {
         memoryReadBtn.setOnClickListener(l -> outputLineTv.setText(calculation.getMemoryCell()));
 
         memoryPlusBtn.setOnClickListener(l -> {
-            outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.PLUS.getSymbol(this)));
-            outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), calculation.getMemoryCell()));
+            outputLineTv.setText(insertSymbol(l, Symbols.PLUS.getSymbol(this)));
+            outputLineTv.setText(insertSymbol(l, calculation.getMemoryCell()));
             double solve = solveExpression();
             displayHistory(solve);
             outputLineTv.setText(Symbols.ZERO.getSymbol(this));
         });
 
         memoryMinusBtn.setOnClickListener(l -> {
-            outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.MINUS.getSymbol(this)));
-            outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), calculation.getMemoryCell()));
+            outputLineTv.setText(insertSymbol(l, Symbols.MINUS.getSymbol(this)));
+            outputLineTv.setText(insertSymbol(l, calculation.getMemoryCell()));
             double solve = solveExpression();
             displayHistory(solve);
             outputLineTv.setText(Symbols.ZERO.getSymbol(this));

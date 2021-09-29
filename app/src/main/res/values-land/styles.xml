@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalculationButton.NumberButton">
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:textSize">@dimen/calc_button_number_text_size</item>
+        <item name="backgroundTint">@color/black_purple</item>
+    </style>
+</resources>

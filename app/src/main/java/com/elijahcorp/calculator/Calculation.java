@@ -1,26 +1,27 @@
 package com.elijahcorp.calculator;
 
 import static com.elijahcorp.calculator.Symbols.*;
-
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.Stack;
 
 public class Calculation implements Parcelable {
     private String stringExpression;
     private String columnHistoryCalculations;
+    private Context contextMain;
 
-    public Calculation(String stringExpression) {
-        this.stringExpression = stringExpression;
-    }
+    private String memoryCell;
 
-    public Calculation() {
+    public Calculation(Context context) {
+        this.contextMain = context;
+        this.memoryCell = ZERO.getSymbol(contextMain);
     }
 
     protected Calculation(Parcel in) {
         stringExpression = in.readString();
         columnHistoryCalculations = in.readString();
+        memoryCell = in.readString();
     }
 
     public static final Creator<Calculation> CREATOR = new Creator<Calculation>() {
@@ -51,7 +52,7 @@ public class Calculation implements Parcelable {
         this.columnHistoryCalculations = columnHistoryCalculations;
     }
 
-    public double calculate() {
+    public double calculate(String stringExpression) {
         StringBuilder postfixStringExpression = getExpression(stringExpression);
         return counting(postfixStringExpression.toString());
     }
@@ -64,7 +65,7 @@ public class Calculation implements Parcelable {
                 continue;
             }
 
-            if (Character.isDigit(stringExpression.charAt(i)) || stringExpression.charAt(i) == POINT.getSymbol().charAt(0)) {
+            if (Character.isDigit(stringExpression.charAt(i)) || stringExpression.charAt(i) == POINT.getSymbol(contextMain).charAt(0)) {
                 while (!isDelimiter(stringExpression.charAt(i)) && !isOperator(stringExpression.charAt(i))) {
                     postfixStringExpression.append(stringExpression.charAt(i));
                     i++;
@@ -94,7 +95,7 @@ public class Calculation implements Parcelable {
         double result;
         Stack<Double> solveStack = new Stack<>();
         for (int i = 0; i < input.length(); i++) {
-            if (Character.isDigit(input.charAt(i)) || input.charAt(i) == POINT.getSymbol().charAt(0)) {
+            if (Character.isDigit(input.charAt(i)) || input.charAt(i) == POINT.getSymbol(contextMain).charAt(0)) {
                 StringBuilder a = new StringBuilder();
 
                 while (!isDelimiter(input.charAt(i)) && !isOperator(input.charAt(i))) {
@@ -115,10 +116,10 @@ public class Calculation implements Parcelable {
     }
 
     private double operateCalculate(char operand, double a, double b) {
-        if (operand == PLUS.getSymbol().charAt(0)) return b + a;
-        else if (operand == MINUS.getSymbol().charAt(0)) return b - a;
-        else if (operand == MULTIPLE.getSymbol().charAt(0)) return b * a;
-        else if (operand == DIVIDE.getSymbol().charAt(0)) return b / a;
+        if (operand == PLUS.getSymbol(contextMain).charAt(0)) return b + a;
+        else if (operand == MINUS.getSymbol(contextMain).charAt(0)) return b - a;
+        else if (operand == MULTIPLE.getSymbol(contextMain).charAt(0)) return b * a;
+        else if (operand == DIVIDE.getSymbol(contextMain).charAt(0)) return b / a;
         else return 0;
     }
 
@@ -131,11 +132,19 @@ public class Calculation implements Parcelable {
     }
 
     private byte getPriority(char s) {
-        if (s == PLUS.getSymbol().charAt(0)) return 0;
-        else if (s == MINUS.getSymbol().charAt(0)) return 1;
-        else if (s == MULTIPLE.getSymbol().charAt(0) || s == DIVIDE.getSymbol().charAt(0)) return 2;
+        if (s == PLUS.getSymbol(contextMain).charAt(0)) return 0;
+        else if (s == MINUS.getSymbol(contextMain).charAt(0)) return 1;
+        else if (s == MULTIPLE.getSymbol(contextMain).charAt(0) || s == DIVIDE.getSymbol(contextMain).charAt(0)) return 2;
         else return 3;
 
+    }
+
+    public String getMemoryCell() {
+        return memoryCell;
+    }
+
+    public void setMemoryCell(String memoryCell) {
+        this.memoryCell = memoryCell;
     }
 
     @Override
@@ -147,5 +156,6 @@ public class Calculation implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(stringExpression);
         parcel.writeString(columnHistoryCalculations);
+        parcel.writeString(memoryCell);
     }
 }

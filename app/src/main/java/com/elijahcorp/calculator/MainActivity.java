@@ -2,19 +2,28 @@ package com.elijahcorp.calculator;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
-    private Button memorySaveBtn, memoryPlusBtn, memoryMinusBtn, memoryRemoveBtn,
-            zeroBtn, pointBtn, equalsBtn, minusBtn, oneBtn,
-            twoBtn, threeBtn, plusBtn, fourBtn, fiveBtn,
-            sixBtn, divideBtn, sevenBtn, eightBtn,
-            nineBtn, multiplyBtn, removeBtn;
+    private MaterialButton
+            memorySaveBtn, memoryPlusBtn,
+            memoryMinusBtn, memoryReadBtn,
+            memoryClearBtn, zeroBtn,
+            pointBtn, equalsBtn,
+            minusBtn, oneBtn,
+            twoBtn, threeBtn,
+            plusBtn, fourBtn,
+            fiveBtn, sixBtn,
+            divideBtn, sevenBtn,
+            eightBtn, nineBtn,
+            multiplyBtn, removeBtn;
     private TextView outputLineTv, historyColumnTv;
     private Calculation calculation;
     private final String KEY_CALCULATIONS = "key_calculations";
@@ -36,17 +45,21 @@ public class MainActivity extends AppCompatActivity {
             calculation = savedInstanceState.getParcelable(KEY_CALCULATIONS);
             historyColumnTv.setText(calculation.getColumnHistoryCalculations());
             outputLineTv.setText(calculation.getStringExpression());
+        } else {
+            calculation = new Calculation(this);
         }
         initialiseOnClickListenerSymbolsBtn();
-        removeSymbols();
-        solveExpression();
+        initialiseOnClickListenerRemoveBtn();
+        initialiseOnClickListenerEqualsBtn();
+        initialiseOnClickListenerMemoryBtn();
     }
 
     private void initViews() {
         memorySaveBtn = findViewById(R.id.memory_save_button);
         memoryPlusBtn = findViewById(R.id.memory_plus_button);
         memoryMinusBtn = findViewById(R.id.memory_minus_button);
-        memoryRemoveBtn = findViewById(R.id.memory_remove_button);
+        memoryReadBtn = findViewById(R.id.memory_read_button);
+        memoryClearBtn = findViewById(R.id.memory_clear_button);
         zeroBtn = findViewById(R.id.zero_button);
         pointBtn = findViewById(R.id.point_button);
         equalsBtn = findViewById(R.id.equals_button);
@@ -69,65 +82,73 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialiseOnClickListenerSymbolsBtn() {
-        zeroBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.ZERO.getSymbol())));
-        oneBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.ONE.getSymbol())));
-        twoBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.TWO.getSymbol())));
-        threeBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.THREE.getSymbol())));
-        fourBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.FOUR.getSymbol())));
-        fiveBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.FIVE.getSymbol())));
-        sixBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.SIX.getSymbol())));
-        sevenBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.SEVEN.getSymbol())));
-        eightBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.EIGHT.getSymbol())));
-        nineBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.NINE.getSymbol())));
-        pointBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.POINT.getSymbol())));
-        multiplyBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.MULTIPLE.getSymbol())));
-        divideBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.DIVIDE.getSymbol())));
-        plusBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.PLUS.getSymbol())));
-        minusBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.MINUS.getSymbol())));
+        zeroBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.ZERO.getSymbol(this))));
+        oneBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.ONE.getSymbol(this))));
+        twoBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.TWO.getSymbol(this))));
+        threeBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.THREE.getSymbol(this))));
+        fourBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.FOUR.getSymbol(this))));
+        fiveBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.FIVE.getSymbol(this))));
+        sixBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.SIX.getSymbol(this))));
+        sevenBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.SEVEN.getSymbol(this))));
+        eightBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.EIGHT.getSymbol(this))));
+        nineBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.NINE.getSymbol(this))));
+        pointBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.POINT.getSymbol(this))));
+        multiplyBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.MULTIPLE.getSymbol(this))));
+        divideBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.DIVIDE.getSymbol(this))));
+        plusBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.PLUS.getSymbol(this))));
+        minusBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.MINUS.getSymbol(this))));
     }
 
-    private String checkInsertSymbol(String pastSymbol, String newSymbol) {
-        boolean pastSymbolIsOperation = new Calculation().isOperator(pastSymbol.charAt(0));
-        boolean newSymbolIsOperation = new Calculation().isOperator(newSymbol.charAt(0));
+    private String insertSymbol(View l, String symbol) {
+        return checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), symbol);
+    }
+
+    private String checkInsertSymbol(View v, String pastSymbol, String newSymbol) {
+        boolean pastSymbolIsOperation = calculation.isOperator(pastSymbol.charAt(0));
+        boolean newSymbolIsOperation = calculation.isOperator(newSymbol.charAt(0));
+        boolean pastSymbolIsPoint = pastSymbol.equals(Symbols.POINT.getSymbol(this));
+        boolean newSymbolIsPoint = newSymbol.equals(Symbols.POINT.getSymbol(this));
+        boolean pastSymbolIsZero = pastSymbol.equals(Symbols.ZERO.getSymbol(this));
+        boolean newSymbolIsZero = newSymbol.equals(Symbols.ZERO.getSymbol(this));
         if (pastSymbolIsOperation && newSymbolIsOperation) {
-            Toast.makeText(MainActivity.this, "Введите другой символ", Toast.LENGTH_SHORT).show();
-        } else if (pastSymbolIsOperation && newSymbol.equals(Symbols.POINT.getSymbol())) {
-            Toast.makeText(MainActivity.this, "Введите другой символ", Toast.LENGTH_SHORT).show();
-        } else if (pastSymbol.equals(Symbols.POINT.getSymbol()) && newSymbolIsOperation) {
-            Toast.makeText(MainActivity.this, "Введите другой символ", Toast.LENGTH_SHORT).show();
-        } else if (outputLineTv.getText().length() == 1 && !pastSymbol.equals(Symbols.ZERO.getSymbol())) {
+            Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();
+        } else if (pastSymbolIsOperation && newSymbolIsPoint) {
+            Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();
+        } else if (pastSymbolIsPoint && newSymbolIsOperation) {
+            Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();
+        } else if (outputLineTv.getText().length() == 1 && !pastSymbolIsZero) {
             return outputLineTv.getText() + newSymbol;
-        } else if (outputLineTv.getText().length() == 1 && newSymbol.equals(Symbols.ZERO.getSymbol())) {
+        } else if (outputLineTv.getText().length() == 1 && newSymbolIsZero) {
             return String.valueOf(outputLineTv.getText());
-        } else if (outputLineTv.getText().length() == 1 && !newSymbol.equals(Symbols.ZERO.getSymbol()) && (newSymbolIsOperation || newSymbol.equals(Symbols.POINT.getSymbol()))) {
+        } else if (outputLineTv.getText().length() == 1 && !newSymbolIsZero && (newSymbolIsOperation || newSymbolIsPoint)) {
             return outputLineTv.getText() + newSymbol;
-        } else if (outputLineTv.getText().length() == 1 && !newSymbol.equals(Symbols.ZERO.getSymbol()) && !newSymbol.equals(Symbols.POINT.getSymbol())) {
+        } else if (outputLineTv.getText().length() == 1 && !newSymbolIsZero && !newSymbolIsPoint) {
             return newSymbol;
-        } else if (newSymbol.equals(Symbols.POINT.getSymbol())) {
+        } else if (newSymbolIsPoint) {
             int countPoint = 0;
             for (int i = outputLineTv.getText().length() - 1; i >= 0; i--) {
-                if (outputLineTv.getText().charAt(i) == Symbols.POINT.getSymbol().charAt(0)) {
+                if (outputLineTv.getText().charAt(i) == Symbols.POINT.getSymbol(this).charAt(0)) {
                     countPoint++;
                 }
-                if (new Calculation().isOperator(outputLineTv.getText().charAt(i))) {
+                if (calculation.isOperator(outputLineTv.getText().charAt(i))) {
                     if (countPoint > 0) {
-                        Toast.makeText(MainActivity.this, "Введите другой символ", Toast.LENGTH_SHORT).show();
+                        Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();
                         return String.valueOf(outputLineTv.getText());
                     } else {
                         return outputLineTv.getText() + newSymbol;
                     }
                 } else if (i == 0 && countPoint > 0) {
-                    Toast.makeText(MainActivity.this, "Введите другой символ", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();
                     return String.valueOf(outputLineTv.getText());
                 }
             }
             return outputLineTv.getText() + newSymbol;
-        } else if (newSymbol.equals(Symbols.ZERO.getSymbol())) {
+        } else if (newSymbolIsZero) {
             for (int i = outputLineTv.getText().length() - 1; i >= 0; i--) {
-                if ((new Calculation().isOperator(outputLineTv.getText().charAt(i))) && (i + 1 < outputLineTv.getText().length()) && outputLineTv.getText().charAt(i + 1) == Symbols.ZERO.getSymbol().charAt(0)) {
-                    Toast.makeText(MainActivity.this, "Введите другой символ", Toast.LENGTH_SHORT).show();
+                if ((calculation.isOperator(outputLineTv.getText().charAt(i))) && (i + 1 < outputLineTv.getText().length()) && outputLineTv.getText().charAt(i + 1) == Symbols.ZERO.getSymbol(this).charAt(0)) {
+                    Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();
                     return String.valueOf(outputLineTv.getText());
-                } else if (outputLineTv.getText().charAt(i) == Symbols.POINT.getSymbol().charAt(0)) {
+                } else if (outputLineTv.getText().charAt(i) == Symbols.POINT.getSymbol(this).charAt(0)) {
                     return outputLineTv.getText() + newSymbol;
                 }
             }
@@ -138,20 +159,60 @@ public class MainActivity extends AppCompatActivity {
         return String.valueOf(outputLineTv.getText());
     }
 
-    private void removeSymbols() {
-        removeBtn.setOnClickListener(l -> outputLineTv.setText(Symbols.ZERO.getSymbol()));
+    private void initialiseOnClickListenerRemoveBtn() {
+        removeBtn.setOnClickListener(l -> outputLineTv.setText(Symbols.ZERO.getSymbol(this)));
     }
 
     @SuppressLint("SetTextI18n")
-    private void solveExpression() {
+    private void initialiseOnClickListenerEqualsBtn() {
         equalsBtn.setOnClickListener(l -> {
-            calculation = new Calculation(outputLineTv.getText().toString());
-            if (historyColumnTv.getText().toString().isEmpty()) {
-                historyColumnTv.setText(outputLineTv.getText() + "\n" + Symbols.EQUALS.getSymbol() + calculation.calculate());
-            } else {
-                historyColumnTv.setText(historyColumnTv.getText().toString() + "\n" + outputLineTv.getText() + "\n" + Symbols.EQUALS.getSymbol() + calculation.calculate());
-            }
-            outputLineTv.setText(Symbols.ZERO.getSymbol());
+            double solve = solveExpression();
+            outputLineTv.setText(Double.toString(solve));
         });
+    }
+
+    private void initialiseOnClickListenerMemoryBtn() {
+        memorySaveBtn.setOnClickListener(l -> {
+            double solve = solveExpression();
+            displayHistory(solve);
+            outputLineTv.setText(Symbols.ZERO.getSymbol(this));
+        });
+
+        memoryReadBtn.setOnClickListener(l -> outputLineTv.setText(calculation.getMemoryCell()));
+
+        memoryPlusBtn.setOnClickListener(l -> {
+            outputLineTv.setText(insertSymbol(l, Symbols.PLUS.getSymbol(this)));
+            outputLineTv.setText(insertSymbol(l, calculation.getMemoryCell()));
+            double solve = solveExpression();
+            displayHistory(solve);
+            outputLineTv.setText(Symbols.ZERO.getSymbol(this));
+        });
+
+        memoryMinusBtn.setOnClickListener(l -> {
+            outputLineTv.setText(insertSymbol(l, Symbols.MINUS.getSymbol(this)));
+            outputLineTv.setText(insertSymbol(l, calculation.getMemoryCell()));
+            double solve = solveExpression();
+            displayHistory(solve);
+            outputLineTv.setText(Symbols.ZERO.getSymbol(this));
+        });
+
+        memoryClearBtn.setOnClickListener(l -> {
+            historyColumnTv.setText("");
+            calculation.setMemoryCell(Symbols.ZERO.getSymbol(this));
+        });
+    }
+
+    private double solveExpression() {
+        return calculation.calculate(outputLineTv.getText().toString());
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void displayHistory(double solve) {
+        calculation.setMemoryCell(Double.toString(solve));
+        if (historyColumnTv.getText().toString().isEmpty()) {
+            historyColumnTv.setText(outputLineTv.getText() + "\n" + Symbols.EQUALS.getSymbol(this) + solve);
+        } else {
+            historyColumnTv.setText(historyColumnTv.getText().toString() + "\n" + outputLineTv.getText() + "\n" + Symbols.EQUALS.getSymbol(this) + solve);
+        }
     }
 }

@@ -106,21 +106,25 @@ public class MainActivity extends AppCompatActivity {
     private String checkInsertSymbol(View v, String pastSymbol, String newSymbol) {
         boolean pastSymbolIsOperation = calculation.isOperator(pastSymbol.charAt(0));
         boolean newSymbolIsOperation = calculation.isOperator(newSymbol.charAt(0));
+        boolean pastSymbolIsPoint = pastSymbol.equals(Symbols.POINT.getSymbol(this));
+        boolean newSymbolIsPoint = newSymbol.equals(Symbols.POINT.getSymbol(this));
+        boolean pastSymbolIsZero = pastSymbol.equals(Symbols.ZERO.getSymbol(this));
+        boolean newSymbolIsZero = newSymbol.equals(Symbols.ZERO.getSymbol(this));
         if (pastSymbolIsOperation && newSymbolIsOperation) {
             Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();
-        } else if (pastSymbolIsOperation && newSymbol.equals(Symbols.POINT.getSymbol(this))) {
+        } else if (pastSymbolIsOperation && newSymbolIsPoint) {
             Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();
-        } else if (pastSymbol.equals(Symbols.POINT.getSymbol(this)) && newSymbolIsOperation) {
+        } else if (pastSymbolIsPoint && newSymbolIsOperation) {
             Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();
-        } else if (outputLineTv.getText().length() == 1 && !pastSymbol.equals(Symbols.ZERO.getSymbol(this))) {
+        } else if (outputLineTv.getText().length() == 1 && !pastSymbolIsZero) {
             return outputLineTv.getText() + newSymbol;
-        } else if (outputLineTv.getText().length() == 1 && newSymbol.equals(Symbols.ZERO.getSymbol(this))) {
+        } else if (outputLineTv.getText().length() == 1 && newSymbolIsZero) {
             return String.valueOf(outputLineTv.getText());
-        } else if (outputLineTv.getText().length() == 1 && !newSymbol.equals(Symbols.ZERO.getSymbol(this)) && (newSymbolIsOperation || newSymbol.equals(Symbols.POINT.getSymbol(this)))) {
+        } else if (outputLineTv.getText().length() == 1 && !newSymbolIsZero && (newSymbolIsOperation || newSymbolIsPoint)) {
             return outputLineTv.getText() + newSymbol;
-        } else if (outputLineTv.getText().length() == 1 && !newSymbol.equals(Symbols.ZERO.getSymbol(this)) && !newSymbol.equals(Symbols.POINT.getSymbol(this))) {
+        } else if (outputLineTv.getText().length() == 1 && !newSymbolIsZero && !newSymbolIsPoint) {
             return newSymbol;
-        } else if (newSymbol.equals(Symbols.POINT.getSymbol(this))) {
+        } else if (newSymbolIsPoint) {
             int countPoint = 0;
             for (int i = outputLineTv.getText().length() - 1; i >= 0; i--) {
                 if (outputLineTv.getText().charAt(i) == Symbols.POINT.getSymbol(this).charAt(0)) {
@@ -139,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             return outputLineTv.getText() + newSymbol;
-        } else if (newSymbol.equals(Symbols.ZERO.getSymbol(this))) {
+        } else if (newSymbolIsZero) {
             for (int i = outputLineTv.getText().length() - 1; i >= 0; i--) {
                 if ((calculation.isOperator(outputLineTv.getText().charAt(i))) && (i + 1 < outputLineTv.getText().length()) && outputLineTv.getText().charAt(i + 1) == Symbols.ZERO.getSymbol(this).charAt(0)) {
                     Snackbar.make(v, R.string.warning_message, Snackbar.LENGTH_SHORT).show();

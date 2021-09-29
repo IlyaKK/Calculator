@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -80,21 +82,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialiseOnClickListenerSymbolsBtn() {
-        zeroBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.ZERO.getSymbol(this))));
-        oneBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.ONE.getSymbol(this))));
-        twoBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.TWO.getSymbol(this))));
-        threeBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.THREE.getSymbol(this))));
-        fourBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.FOUR.getSymbol(this))));
-        fiveBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.FIVE.getSymbol(this))));
-        sixBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.SIX.getSymbol(this))));
-        sevenBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.SEVEN.getSymbol(this))));
-        eightBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.EIGHT.getSymbol(this))));
-        nineBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.NINE.getSymbol(this))));
-        pointBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.POINT.getSymbol(this))));
-        multiplyBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.MULTIPLE.getSymbol(this))));
-        divideBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.DIVIDE.getSymbol(this))));
-        plusBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.PLUS.getSymbol(this))));
-        minusBtn.setOnClickListener(l -> outputLineTv.setText(checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), Symbols.MINUS.getSymbol(this))));
+        zeroBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.ZERO.getSymbol(this))));
+        oneBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.ONE.getSymbol(this))));
+        twoBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.TWO.getSymbol(this))));
+        threeBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.THREE.getSymbol(this))));
+        fourBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.FOUR.getSymbol(this))));
+        fiveBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.FIVE.getSymbol(this))));
+        sixBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.SIX.getSymbol(this))));
+        sevenBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.SEVEN.getSymbol(this))));
+        eightBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.EIGHT.getSymbol(this))));
+        nineBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.NINE.getSymbol(this))));
+        pointBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.POINT.getSymbol(this))));
+        multiplyBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.MULTIPLE.getSymbol(this))));
+        divideBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.DIVIDE.getSymbol(this))));
+        plusBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.PLUS.getSymbol(this))));
+        minusBtn.setOnClickListener(l -> outputLineTv.setText(insertSymbol(l, Symbols.MINUS.getSymbol(this))));
+    }
+
+    private String insertSymbol(View l, String symbol) {
+        return checkInsertSymbol(l, String.valueOf(outputLineTv.getText().charAt(outputLineTv.getText().length() - 1)), symbol);
     }
 
     private String checkInsertSymbol(View v, String pastSymbol, String newSymbol) {

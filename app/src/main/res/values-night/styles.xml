@@ -29,4 +29,12 @@
     <style name="CalculationNestedScrollView">
         <item name="android:background">@color/black_tint</item>
     </style>
+
+    <style name="CalculationTextView.ModeDayNight.OutputLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/calc_output_line_text_size</item>
+        <item name="android:paddingStart">@dimen/calc_output_line_padding</item>
+        <item name="android:paddingEnd">@dimen/calc_output_line_padding</item>
+        <item name="android:background">@color/black_tint</item>
+    </style>
 </resources>

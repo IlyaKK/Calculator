@@ -72,6 +72,24 @@
     </style>
 
     <style name="CalculationNestedScrollView">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:background">@color/white_tint</item>
+    </style>
+
+    <style name="CalculationTextView.ModeDayNight.SettingsTextView">
+        <item name="android:textSize">@dimen/setting_text_view_text_size</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:background">@color/white_tint</item>
+        <item name="android:paddingStart">@dimen/settings_text_view_padding</item>
+        <item name="android:paddingEnd">@dimen/settings_text_view_padding</item>
+    </style>
+
+    <style name="SettingsSwitchMaterial">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:paddingStart">@dimen/double_padding</item>
+        <item name="android:paddingEnd">@dimen/double_padding</item>
         <item name="android:background">@color/white_tint</item>
     </style>
 </resources>

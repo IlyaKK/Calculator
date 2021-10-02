@@ -45,4 +45,6 @@
     <string name="button_remove">C</string>
 
     <string name="warning_message">Введите другой символ</string>
+    <string name="night_mode">Ночной режим</string>
+    <string name="settings_button_floating_button">settings_button_floating_button</string>
 </resources>

@@ -15,4 +15,5 @@
     <color name="light_purple">#8541FF</color>
     <color name="black_orange">#611700</color>
     <color name="light_orange">#FF6F42</color>
+    <color name="no_color">#00FFFFFF</color>
 </resources>

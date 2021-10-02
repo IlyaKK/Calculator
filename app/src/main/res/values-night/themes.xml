@@ -8,7 +8,8 @@
         <item name="actionBarTheme">@style/MyActionBarTheme</item>
     </style>
 
-    <style name="MyActionBarTheme">
+    <style name="MyActionBarTheme" parent="Theme.MaterialComponents.Light">
         <item name="android:background">@color/green</item>
+        <item name="android:colorForeground">@color/white</item>
     </style>
 </resources>

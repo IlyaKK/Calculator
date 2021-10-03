@@ -1,6 +1,7 @@
 package com.elijahcorp.calculator;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -70,6 +71,15 @@ public class MainActivity extends AppCompatActivity {
         initialiseOnClickListenerMemoryBtn();
         initialiseOnClickListenerSettingButtonImageView();
         ChangerTheme.initialiseTheme(this);
+        getExpressionFromIntent();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intentResult = new Intent();
+        intentResult.putExtra(KEY_CALCULATIONS, outputLineTextView.getText());
+        setResult(RESULT_OK, intentResult);
+        super.onBackPressed();
     }
 
     private void initViews() {
@@ -223,6 +233,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void initialiseOnClickListenerSettingButtonImageView() {
         settingsImageView.setOnClickListener(l -> SettingsActivity.lunchSettingActivity(this));
+    }
+
+    private void getExpressionFromIntent() {
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (!(bundle == null)) {
+            outputLineTextView.setText(bundle.getString(KEY_CALCULATIONS, "0"));
+        }
     }
 
     private double solveExpression() {

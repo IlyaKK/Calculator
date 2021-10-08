@@ -8,6 +8,10 @@
     <dimen name="middle_text_size">20sp</dimen>
     <dimen name="small_text_size">15sp</dimen>
 
+    <dimen name="double_size">100dp</dimen>
+    <dimen name="default_size">50dp</dimen>
+    <dimen name="half_size">25dp</dimen>
+
     <dimen name="calc_button_inset">0dp</dimen>
 
     <dimen name="calc_text_view_padding">@dimen/half_padding</dimen>
@@ -20,4 +24,9 @@
     <dimen name="calc_button_clear_memory_text_size">@dimen/middle_text_size</dimen>
 
     <dimen name="calc_button_number_text_size">@dimen/big_text_size</dimen>
+
+    <dimen name="setting_text_view_text_size">@dimen/big_text_size</dimen>
+    <dimen name="settings_text_view_padding">@dimen/double_padding</dimen>
+
+    <dimen name="settings_image_view_layout_size">@dimen/default_size</dimen>
 </resources>

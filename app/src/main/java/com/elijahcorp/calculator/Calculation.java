@@ -1,9 +1,11 @@
 package com.elijahcorp.calculator;
 
 import static com.elijahcorp.calculator.Symbols.*;
+
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import java.util.Stack;
 
 public class Calculation implements Parcelable {
@@ -134,7 +136,8 @@ public class Calculation implements Parcelable {
     private byte getPriority(char s) {
         if (s == PLUS.getSymbol(contextMain).charAt(0)) return 0;
         else if (s == MINUS.getSymbol(contextMain).charAt(0)) return 1;
-        else if (s == MULTIPLE.getSymbol(contextMain).charAt(0) || s == DIVIDE.getSymbol(contextMain).charAt(0)) return 2;
+        else if (s == MULTIPLE.getSymbol(contextMain).charAt(0) || s == DIVIDE.getSymbol(contextMain).charAt(0))
+            return 2;
         else return 3;
 
     }

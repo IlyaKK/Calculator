@@ -6,16 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/background_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+    <include layout="@layout/background_image_view"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/settings_button_image_view"
+        android:layout_width="@dimen/settings_image_view_layout_size"
+        android:layout_height="@dimen/settings_image_view_layout_size"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.01"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_maths" />
+        app:layout_constraintVertical_bias="0.01"
+        app:srcCompat="@drawable/setting_button_image" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
@@ -74,12 +77,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/memory_clear_button"
-            style="@style/CalculationButton"
+            style="@style/CalculationButton.ModeDayNight"
             android:text="@string/button_clear_memory" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/remove_button"
-            style="@style/CalculationButton"
+            style="@style/CalculationButton.ModeDayNight"
             android:text="@string/button_remove" />
 
     </LinearLayout>
